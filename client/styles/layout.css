@@ -1,0 +1,199 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+body {
+    background: #eee;
+    text-align: center;
+    padding: 0 25px;
+    font-family: arial, sans-serif;
+}
+
+.container {
+	margin-top: 30px;
+}
+
+.chatboxes {
+    margin: auto;
+    text-align: left;
+    background: white;
+    padding: 0px 0px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    float: left;
+}
+
+.chatboxes {
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.chatboxes h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.chatboxes h1 span {
+    font-style:italic;
+}
+
+.chatboxes ul {
+    padding-left: 20px;
+}
+
+.chatboxes .error {
+    border: 1px solid red;
+    background: #FDEFF0;
+    padding: 20px;
+}
+
+.chatboxes .success {
+    margin-top: 25px;
+}
+
+.chatboxes .success code {
+    font-size: 12px;
+    color: green;
+    line-height: 13px;
+}
+
+#sidebar, #friendbar {
+	margin: auto;
+	text-align: left;
+	background: white;
+	padding: 25px 35px;
+	border: solid #ddd;
+	border-width: 0 1px 1px 1px;
+	float: center;
+
+}
+#textbox {
+    height: 20px;
+    float: left;
+    width: 80%;
+}
+
+form {
+    padding: 20px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+form input[type=text] {
+    margin-right: 10px;
+    width: 70%;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.inputArea {
+    display: block ;
+    width: 100%;
+}
+
+.inputArea button {
+    float: left;
+}
+
+.chatContainer {
+    padding: 2px 15px;
+}
+
+.chat {
+    margin-top: 10px;
+    background-color: #eee;
+    text-align: left;
+}
+
+.chat .username {
+    font-weight: 800;
+    text-align: left;
+    text-indent: 10px;
+}
+
+.chat:hover {
+    background-color: #ddd;
+}
+
+.spinner {
+    float: right;
+    height: 46px;
+    margin-bottom: 5px;
+}
+
+.spinner img {
+    padding: 10px;
+}
+
+#main {
+    background-color: white;
+    padding: 17px;
+}
+#left, #right {
+    margin-top: 20px;
+}
+#addFriend, #makeRoom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.highlighted {
+    background-color: #eee;
+}
+
+/* #Page Styles
+================================================== */
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/

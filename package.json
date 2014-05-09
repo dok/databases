@@ -1,0 +1,28 @@
+{
+  "name": "chatterbox",
+  "version": "0.0.1",
+  "main": "server/main.js",
+  "author": "Hack Reactor",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mocha": "^1.18.2",
+    "mysql": "^2.2.0",
+    "request": "^2.34.0",
+    "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "request": "^2.34.0",
+    "chai": "^1.9.0"
+  },
+  "description": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dokko1230/2014-04-chatterbox-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dokko1230/2014-04-chatterbox-server/issues"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "chatterbox",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Dokko1230/2014-04-chatterbox-server",
+  "authors": [
+    "Sean Dokko"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "underscore": "~1.6.0",
+    "moment": "~2.6.0"
+  }
+}

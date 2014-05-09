@@ -1,10 +1,25 @@
+DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
 
 CREATE TABLE messages (
- /* Describe your table here.*/
+  id INTEGER(10),
+  description VARCHAR(255),
+  user INTEGER(10),
+  roomname VARCHAR(255),
+  createdat DATE
 );
+
+-- CREATE TABLE users (
+--   /* Describe your table here.*/
+-- );
+
+-- CREATE TABLE rooms (
+--   /* Describe your table here.*/
+-- );
+
 
 /* You can also create more tables, if you need them... */
 

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/skeleton.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+
+    <!-- dependencies -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <!-- your scripts -->
+    <script src="scripts/config.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="four columns">
+          <div id="left">
+            <h3>friends</h3>
+            New Friend: <input type="text" id="newFriendName"></input>
+            <button id="addFriend">Add Friend</button>
+            <div id="friendbar">
+              <div class = "allusers">All Users</div>
+            </div>
+          </div>
+        </div>
+        <div class="eight columns">
+          <div id="main">
+            <div class="inner">
+              <h2>~ ChatterBox ~</h2>
+              <textarea id="textbox"></textarea>
+              <button id="enter">Enter</button>
+              <div id="messages">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="four columns">
+          <div id="right">
+            <h3>chatrooms</h3>
+            New Room: <input type="text" id="newRoomName"></input>
+            <button id="makeRoom">Make Room</button>
+            <div id="sidebar">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script id="roomTemplate" type="javascript/template">
+      <div class="roomname"> {{ roomname }} </div>
+    </script>
+
+    <script id="friendTemplate" type="javascript/template">
+      <div class="friendname"> {{ friendname }}</div>
+    </script>
+
+    <script id="messageTemplate" type="javascript/template">
+      <div class="chat">
+        <div class="username"> {{ username }} <span class="time"> {{ moment }}</span></div>
+        <div class="text"> {{ description }} </div>
+      </div>
+    </script>
+    <script src="scripts/simpleEngine.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
