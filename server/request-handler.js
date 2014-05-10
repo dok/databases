@@ -11,6 +11,7 @@ storage.initialize();
 var qs = require('querystring');
 var fs = require('fs');
 var parser = require('./route-parser.js').parser;
+var url = require('url');
 
 // var messageOne = {
 //     username: 'John Ford',
@@ -50,10 +51,6 @@ exports.handler = function(request, response) {
     statusCode = 201;
   }
 
-  if(!parser.isValid(routes, request.url)) {
-    statusCode = 404;
-  }
-
   // fs.readFile(request.url)
   // fs.exists()
 
@@ -67,16 +64,30 @@ exports.handler = function(request, response) {
   var methodType = request.method;
   response.writeHead(statusCode, headers);
 
-
   if(methodType === 'GET') {
     response.write(storage.getAll());
     // console.log(storage.getAll());
   } else {
     request.on('data', function(chunk) {
       console.log('tostring', chunk.toString());
-      debugger;
+      var message;
+      try {
+        message = JSON.parse(chunk.toString());
+      } catch (e) {
+        console.log(e);
+      }
+      if(!message) {
+        var args = chunk.toString().split('&');
+        var username = args[0].replace('username=', '');
+        var message = args[1].replace('message=', '');
+        // message = url.parse(chunk.toString()).query;
+        message = {
+          username: username,
+          message: message
+        };
+      }
+      console.log('test', message);
       response.writeHead(201, headers);
-      message = JSON.parse(chunk.toString());
       storage.push(message);
     });
     // response.write()

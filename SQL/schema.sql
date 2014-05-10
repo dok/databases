@@ -6,8 +6,8 @@ USE chat;
 
 CREATE TABLE messages (
   id INTEGER(10),
-  description VARCHAR(255),
-  user INTEGER(10),
+  message VARCHAR(255),
+  username VARCHAR(10),
   roomname VARCHAR(255),
   createdat DATE
 );

@@ -8,13 +8,13 @@ exports.storage = {
       password : "",
       database : "chat"
     });
-    this.dbConnection.connect();
     this.tablename = "messages";
   },
   getLength: function() {
     return this.storage.length;
   },
   push: function(msg) {
+    this.dbConnection.connect();
     // var msg = {
     //   username: username,
     //   message: message,
@@ -24,16 +24,14 @@ exports.storage = {
       msg.roomname = undefined;
     }
 
-    debugger;
-
     this.dbConnection.query('INSERT INTO messages SET ?', msg, function(err, result){
       if (err) {
         console.log("Error while insertion:", err);
       }
-      debugger;
       console.log("Result", result);
     });
     // this.storage.push(msg);
+    this.dbConnection.end();
   },
 
   // Returns an array with the containing results

@@ -40,14 +40,15 @@ describe("Persistent Node Chat Server", function() {
               /* Now if we look in the database, we should find the
                * posted message there. */
 
-              var queryString = "SELECT * FROM messages";
+              var queryString = "SELECT * FROM messages WHERE username = 'Valjean'";
               var queryArgs = [];
               /* TODO: Change the above queryString & queryArgs to match your schema design
                * The exact query string and query args to use
                * here depend on the schema you design, so I'll leave
                * them up to you. */
-              dbConnection.query( queryString, queryArgs,
+              dbConnection.query( queryString, 
                 function(err, results, fields) {
+                  console.log('res: ', results);
                   // Should have one result:
                   expect(results.length).to.equal(1);
                   expect(results[0].username).to.equal("Valjean");
