@@ -60,6 +60,16 @@ exports.storage = {
   },
 
   getAll: function(callback) {
+    var self = this;
+
+    this.messages.findAll()
+      .complete(function(err, results) {
+        if(!!err) {
+          console.log('Err: ', err);
+        } else {
+          callback(JSON.stringify({results: results}));
+        }
+      });
     //this.dbConnection.connect();
     //console.log('getAll');
     // debugger;
