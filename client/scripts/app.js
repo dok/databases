@@ -2,7 +2,7 @@
 // Have on clicks in one place
 
 var app = {
-  server: 'http://127.0.0.1:3000/1/classes/messages',
+  server: 'http://127.0.0.1:8080/classes/room1',
   currentMessages: '',
   roomname: null,
   person: null,
@@ -12,9 +12,9 @@ var app = {
 
     this.fetch();
 
-    setInterval(function() {
-      that.fetch();
-    }, 3000);
+    // setInterval(function() {
+    //   that.fetch();
+    // }, 3000);
 
     // Send logic
     $("#enter").on('click', function() {
@@ -47,13 +47,14 @@ var app = {
   },
 
   send: function(message) {
+    debugger;
     app.request('POST', JSON.stringify(message));
   },
 
   fetch: function(room, person) {
     var searchData = {
-      order: '-createdAt',
-      where: {}
+      // order: '-createdAt',
+      // where: {}
     };
     if (room) {
       searchData.where.roomname = app.roomname.trim();

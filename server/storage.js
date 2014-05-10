@@ -24,12 +24,15 @@ exports.storage = {
       msg.roomname = undefined;
     }
 
+    debugger;
+
     this.dbConnection.query('INSERT INTO messages SET ?', msg, function(err, result){
       if (err) {
         console.log("Error while insertion:", err);
       }
+      debugger;
       console.log("Result", result);
-    })
+    });
     // this.storage.push(msg);
   },
 

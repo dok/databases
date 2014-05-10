@@ -6,6 +6,7 @@
  * *Hint* Check out the node module documentation at http://nodejs.org/api/modules.html. */
 
 var storage = require('./storage.js').storage;
+storage.initialize();
 
 var qs = require('querystring');
 var fs = require('fs');
@@ -33,12 +34,13 @@ exports.handler = function(request, response) {
   /* Documentation for both request and response can be found at
    * http://nodemanual.org/0.8.14/nodejs_ref_guide/http.html */
 
-  console.log("Serving request type " + request.method + " for url " + request.url);
+  // console.log("Serving request type " + request.method + " for url " + request.url);
   var routes = [
     "classes/room1",
     "/classes/*"
   ];
 
+  debugger;
 
   var statusCode;
 
@@ -66,12 +68,13 @@ exports.handler = function(request, response) {
   response.writeHead(statusCode, headers);
 
 
-  if(methodType === 'GET' || methodType === 'OPTIONS') {
+  if(methodType === 'GET') {
     response.write(storage.getAll());
-    console.log(storage.getAll());
+    // console.log(storage.getAll());
   } else {
     request.on('data', function(chunk) {
-      // console.log(JSON.parse(chunk.toString()));
+      console.log('tostring', chunk.toString());
+      debugger;
       response.writeHead(201, headers);
       message = JSON.parse(chunk.toString());
       storage.push(message);
