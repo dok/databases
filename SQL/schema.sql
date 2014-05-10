@@ -5,11 +5,9 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  id INTEGER(10),
   message VARCHAR(255),
   username VARCHAR(10),
-  roomname VARCHAR(255),
-  createdat DATE
+  roomname VARCHAR(255)
 );
 
 -- CREATE TABLE users (

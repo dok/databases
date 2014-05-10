@@ -21,7 +21,7 @@ exports.storage = {
     //   roomname: roomname
     // };
     if(msg.roomname === null) {
-      msg.roomname = undefined;
+      msg.roomname = 'placeholder';
     }
 
     this.dbConnection.query('INSERT INTO messages SET ?', msg, function(err, result){
@@ -44,8 +44,23 @@ exports.storage = {
     return _.where(this.storage, query);
   },
 
-  getAll: function() {
-    return JSON.stringify({results: this.storage});
+  getAll: function(callback) {
+    this.dbConnection.connect();
+    console.log('getAll');
+    debugger;
+    this.dbConnection.query('SELECT * FROM chat.messages;', function(err, rows){
+      if(err) {
+        console.log("Error while select");
+      }
+      debugger;
+      console.log('rows');
+      var r = rows;
+      // return {results: []};
+
+      callback(JSON.stringify({results: []}));
+      // this.dbConnection.end();
+    });
+    //return JSON.stringify({results: this.storage});
   }
 
 };

@@ -41,8 +41,6 @@ exports.handler = function(request, response) {
     "/classes/*"
   ];
 
-  debugger;
-
   var statusCode;
 
   if(request.method === 'GET' || request.method === 'OPTIONS') {
@@ -65,7 +63,11 @@ exports.handler = function(request, response) {
   response.writeHead(statusCode, headers);
 
   if(methodType === 'GET') {
-    response.write(storage.getAll());
+    storage.getAll(function(messages) {
+      response.write(messages);
+    });
+    // debugger;
+    // response.write(messages);
     // console.log(storage.getAll());
   } else {
     request.on('data', function(chunk) {
