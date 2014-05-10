@@ -35,11 +35,7 @@ exports.handler = function(request, response) {
   /* Documentation for both request and response can be found at
    * http://nodemanual.org/0.8.14/nodejs_ref_guide/http.html */
 
-  // console.log("Serving request type " + request.method + " for url " + request.url);
-  var routes = [
-    "classes/room1",
-    "/classes/*"
-  ];
+  console.log("Serving request type " + request.method + " for url " + request.url);
 
   var statusCode;
 
@@ -48,9 +44,6 @@ exports.handler = function(request, response) {
   } else if(request.method === 'POST') {
     statusCode = 201;
   }
-
-  // fs.readFile(request.url)
-  // fs.exists()
 
   /* Without this line, this server wouldn't work. See the note
    * below about CORS. */
@@ -64,12 +57,14 @@ exports.handler = function(request, response) {
 
   if(methodType === 'GET') {
     storage.getAll(function(messages) {
+      console.log('success getting from db', messages);
       response.write(messages);
+      response.end();
     });
     // debugger;
     // response.write(messages);
     // console.log(storage.getAll());
-  } else {
+  } else if(methodType === 'POST') {
     request.on('data', function(chunk) {
       console.log('tostring', chunk.toString());
       var message;
@@ -91,15 +86,17 @@ exports.handler = function(request, response) {
       console.log('test', message);
       response.writeHead(201, headers);
       storage.push(message);
+      response.end();
     });
-    // response.write()
+  } else if (methodType === 'OPTIONS') {
+    response.end();
   }
 
   /* Make sure to always call response.end() - Node will not send
    * anything back to the client until you do. The string you pass to
    * response.end() will be the body of the response - i.e. what shows
    * up in the browser.*/
-  response.end();
+
 };
 
 /* These headers will allow Cross-Origin Resource Sharing (CORS).

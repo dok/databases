@@ -47,7 +47,6 @@ var app = {
   },
 
   send: function(message) {
-    debugger;
     app.request('POST', JSON.stringify(message));
   },
 
@@ -63,6 +62,7 @@ var app = {
       searchData.where.username = app.person.trim();
     }
     app.request('GET', searchData, function(response) {
+      console.log('success!', response);
       app.display(response.results);
     });
   },

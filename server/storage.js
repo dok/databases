@@ -47,19 +47,29 @@ exports.storage = {
   getAll: function(callback) {
     this.dbConnection.connect();
     console.log('getAll');
-    debugger;
+    // debugger;
     this.dbConnection.query('SELECT * FROM chat.messages;', function(err, rows){
       if(err) {
         console.log("Error while select");
       }
-      debugger;
-      console.log('rows');
-      var r = rows;
-      // return {results: []};
-
-      callback(JSON.stringify({results: []}));
+      var messages = [];
+      //iterate through rows
+      for(var i=0; i<rows.length; i++) {
+      //  create a message
+        var message = {
+          message : rows[i].message,
+          roomname : rows[i].roomname,
+          username : rows[i].username
+        };
+      //  push it to message
+        messages.push(message);
+      }
+      // debugger;
+      console.log(messages);
+      callback(JSON.stringify({results: messages}));
       // this.dbConnection.end();
     });
+    this.dbConnection.end();
     //return JSON.stringify({results: this.storage});
   }
 
