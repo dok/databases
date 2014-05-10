@@ -1,14 +1,17 @@
--- DROP DATABASE chat;
+DROP DATABASE chat;
 
 CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  message VARCHAR(255),
-  username VARCHAR(10),
-  roomname VARCHAR(255)
-);
+-- CREATE TABLE messages (
+--   message VARCHAR(255),
+--   username VARCHAR(10),
+--   roomname VARCHAR(255)
+-- );
+
+-- DROP TABLE messages;
+
 
 -- CREATE TABLE users (
 --   /* Describe your table here.*/

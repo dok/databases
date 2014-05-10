@@ -8,6 +8,7 @@
     "mocha": "^1.18.2",
     "mysql": "^2.2.0",
     "request": "^2.34.0",
+    "sequelize": "^1.7.4",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
